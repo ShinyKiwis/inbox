@@ -1,0 +1,51 @@
+span.highlight {
+  color: $blue;
+}
+
+.prompt {
+  font-size: 1.2em;
+  font-weight: 500;
+}
+
+.prompt:last-child {
+  margin-top: auto;
+}
+
+.auth-form {
+  width: 50%
+}
+
+.auth-prompt {
+  text-align: center;
+}
+
+.auth-container h2 {
+  color: $blue;
+}
+
+.auth-container .logo {
+  font-size: 3em;
+}
+
+.auth-column label {
+  font-family: "DM Sans", sans-serif;
+  font-weight: 500;
+  font-size: 1.2em;
+}
+
+.auth-column input {
+  margin-top: 0.8em;
+  margin-bottom: 1em;
+  background: transparent;
+  border: 1px solid $light-gray;
+  border-radius: 0.4em;
+  font-size: 1em;
+  padding: 0.4em 0.8em;
+  font-family: "DM Sans", sans-serif;
+  width: 100%;
+}
+
+.auth-column input:focus {
+  border: 2px solid $blue;
+  outline: none;
+}

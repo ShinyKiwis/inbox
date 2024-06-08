@@ -1,0 +1,17 @@
+.primary-button {
+  color: $white;
+  background-color: $blue;
+  cursor: pointer;
+}
+
+.auth-column input.primary-button {
+  color: $white;
+  background-color: $blue;
+  border: 1px solid $blue;
+  font-weight: 600;
+}
+
+.auth-column input.primary-button:hover {
+  background-color: $light-blue;
+  transition: 1s;
+}
