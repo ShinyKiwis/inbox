@@ -28,14 +28,15 @@ span.highlight {
 }
 
 .auth-column label {
+  display: inline-block;
   font-family: "DM Sans", sans-serif;
   font-weight: 500;
   font-size: 1.2em;
+  margin-top: 1em;
 }
 
 .auth-column input {
   margin-top: 0.8em;
-  margin-bottom: 1em;
   background: transparent;
   border: 1px solid $light-gray;
   border-radius: 0.4em;

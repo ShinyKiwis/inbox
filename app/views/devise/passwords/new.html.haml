@@ -1,10 +1,12 @@
-%h2 Forgot your password?
-= form_for(resource, as: resource_name, url: password_path(resource_name), html: { method: :post }) do |f|
-  = render "devise/shared/error_messages", resource: resource
-  .field
-    = f.label :email
-    %br/
-    = f.email_field :email, autofocus: true, autocomplete: "email"
-  .actions
-    = f.submit "Send me reset password instructions"
-= render "devise/shared/links"
+.auth-container{ style: "justify-content: center" }
+  .auth-column{ style: "flex: 0" }
+    %h2 Forgot your password?
+    = form_for(resource, as: resource_name, url: password_path(resource_name), html: { method: :post }) do |f|
+      = render "devise/shared/error_messages", resource: resource
+      .field
+        = f.label :email
+        %br/
+        = f.email_field :email, autofocus: true, autocomplete: "email", placeholder: 'Your email'
+        = f.submit "Send me reset password instructions", class: 'primary-button' 
+    %div{ style: 'display: flex; justify-content: center; gap: 0.8em; margin-top: 0.4em;' }
+      = render "devise/shared/links"

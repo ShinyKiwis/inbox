@@ -1,0 +1,13 @@
+.error {
+  color: $red; 
+  font-family: 'DM Sans', sans-serif;
+}
+
+.field_with_errors input {
+  border: 1px solid $red !important;
+}
+
+.error-message {
+  font-size: 0.8em;
+  color: $red;
+}
