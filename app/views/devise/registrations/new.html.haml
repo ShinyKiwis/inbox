@@ -14,13 +14,13 @@
           = f.label :email
           = f.email_field :email, autofocus: true, autocomplete: "email", placeholder: 'in@box.com'
           - if resource.errors[:email].any?
-            %span.error-message
+            %span.error
               = resource.errors.full_messages_for(:email).first
         .field
           = f.label :username
           = f.text_field :username, placeholder: 'Awesome username'
           - if resource.errors[:username].any?
-            %span.error-message
+            %span.error
               = resource.errors.full_messages_for(:username).first
         .field
           = f.label :password
@@ -29,13 +29,13 @@
               (#{@minimum_password_length} characters minimum)
           = f.password_field :password, autocomplete: "new-password", placeholder: 'Super secret password'
           - if resource.errors[:password].any?
-            %span.error-message
+            %span.error
               = resource.errors.full_messages_for(:password).first
         .field
           = f.label :password_confirmation
           = f.password_field :password_confirmation, autocomplete: "new-password", placeholder: 'Super secret password'
           - if resource.errors[:password_confirmation].any?
-            %span.error-message
+            %span.error
               = resource.errors.full_messages_for(:password_confirmation).first
           = f.submit "Create your account", class: 'primary-button'
         %p.auth-prompt

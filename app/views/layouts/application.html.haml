@@ -8,5 +8,7 @@
     = csp_meta_tag
     = stylesheet_link_tag "application", "data-turbo-track": "reload"
     = javascript_include_tag "application", "data-turbo-track": "reload", type: "module"
+    %script{crossorigin: "anonymous", src: "https://kit.fontawesome.com/9255a9b9ab.js"}
   %body
+    = render_header
     = yield
