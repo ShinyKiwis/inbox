@@ -2,6 +2,14 @@ span.highlight {
   color: $blue;
 }
 
+.auth-container a {
+  color: $blue;
+}
+
+.auth-container a:hover {
+  color: $light-blue;
+}
+
 .prompt {
   font-size: 1.2em;
   font-weight: 500;
@@ -17,6 +25,7 @@ span.highlight {
 
 .auth-prompt {
   text-align: center;
+  font-family: "DM Sans", sans-serif;
 }
 
 .auth-container h2 {
