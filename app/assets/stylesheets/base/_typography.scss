@@ -6,10 +6,12 @@ h1, h2, h3, h4 ,h5 ,h6 {
   font-weight: 500;
 } 
 
-p {
-  font-family: "Lora", serif;
-}
-
-body {
+* {
   font-family: "DM Sans", sans-serif;
 }
+
+input, input::placeholder {
+  font-family: "DM Sans", sans-serif;
+  font-weight: 500;
+}
+

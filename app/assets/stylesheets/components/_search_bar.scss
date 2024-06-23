@@ -1,9 +1,43 @@
 .search-bar {
-  border: 1px solid $light-gray;
+  border: 2px solid $light-gray;
   border-radius: 0.4em;
   padding: 0.4em 0.8em;
+  display: flex;
+  align-items: center;
+  gap: 0.8em;
 }
 
-.search-bar i {
+.search-bar:focus-within {
+  border: 2px solid $blue;
+}
+
+.search-bar:focus-within i, span {
+  color: $blue;
+}
+
+.search-bar:focus-within span.search-action-prompt {
+  background-color: $blue;
+}
+
+.search-bar input {
+  border: none;
+  width: 20em;
+}
+
+.search-bar input:focus {
+  outline: none;
+}
+
+.search-bar i, span {
   color: $light-gray;
 }
+
+.search-bar span.search-action-prompt {
+  background-color: $light-gray;
+  font-size: 0.8em;
+  padding: 0.2em 1.2em;
+  border-radius: 0.2em;
+  color: $white;
+  font-weight: 600;
+}
+
