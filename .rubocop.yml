@@ -1,0 +1,101 @@
+inherit_gem:
+  rubocop-shopify: rubocop.yml 
+  rubocop-rspec:
+  rubocop-performance:
+  rubocop-rails:
+
+require:
+  - rubocop-rspec
+  - rubocop-performance
+  - rubocop-rails
+
+AllCops:
+  TargetRubyVersion: 3.0.0
+  Exclude:
+    - 'app/views/**/*'
+    - 'bin/*'
+    - 'db/**/*'
+    - 'log/**/*'
+    - 'node_modules/**/*'
+    - 'public/**/*'
+    - 'tmp/**/*'
+    - 'vendor/**/*'
+    - '.git/**/*'
+    - '.ruby-*'
+    - '.node-version'
+    - '.gitignore'
+    - '.gitattributes'
+    - 'README.md'
+    - 'Procfile.*'
+
+# Rails
+Rails:
+  Enabled: true
+
+Rails/HttpStatus:
+  EnforcedStyle: numeric
+
+Rails/RequestReferer:
+  EnforcedStyle: referrer
+
+Rails/UnknownEnv:
+  Environments:
+    - development
+    - test
+    - staging
+    - production
+
+# Styles
+Style/StringLiterals:
+  EnforcedStyle: single_quotes
+  Exclude:
+    - 'db/schema.rb'
+
+Style/AccessorGrouping:
+  EnforcedStyle: grouped
+
+Style/Alias:
+  EnforcedStyle: prefer_alias_method
+
+Style/Lambda:
+  EnforcedStyle: literal
+
+Style/SignalException:
+  EnforcedStyle: only_raise
+
+Style/TernaryParentheses:
+  EnforcedStyle: require_no_parentheses
+
+Style/ClassAndModuleChildren:
+  Enabled: false
+
+Style/GlobalStdStream:
+  Enabled: false
+
+# Layouts
+Layout/LineLength:
+  Max: 473
+
+Layout/AccessModifierIndentation:
+  EnforcedStyle: indent
+
+Layout/BlockEndNewline:
+  Enabled: true
+
+Layout/CommentIndentation:
+  Enabled: true
+
+Layout/ConditionPosition:
+  Enabled: true
+
+Layout/MultilineMethodArgumentLineBreaks:
+  Enabled: false
+
+Layout/EmptyLinesAroundAccessModifier:
+  EnforcedStyle: around
+
+Layout/EmptyLinesAroundAttributeAccessor:
+  Enabled: true
+  
+Layout/EndAlignment:
+  EnforcedStyleAlignWith: keyword
