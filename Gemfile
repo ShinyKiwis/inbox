@@ -84,4 +84,4 @@ gem 'faraday', '~> 2.9'
 gem 'faraday-retry', '~> 2.2'
 gem 'faraday-net_http_persistent', '~> 2.0'
 
-gem "honeybadger", "~> 5.13"
+gem 'honeybadger', '~> 5.13'

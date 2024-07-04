@@ -1,11 +1,13 @@
+# frozen_string_literal: true
+
 module HttpEngine
   class Engine
     def initialize(base_url, params: {})
       @conn ||= Faraday.new(url: base_url, params: params, **default_params) do |config|
-        config.request :retry, retry_options
-        config.response :raise_error
-        config.response :logger, Rails.logger, logger_options
-        config.adapter :net_http_persistent
+        config.request(:retry, retry_options)
+        config.response(:raise_error)
+        config.response(:logger, Rails.logger, logger_options)
+        config.adapter(:net_http_persistent)
       end
     end
 
@@ -19,11 +21,11 @@ module HttpEngine
       {
         request: {
           open_timeout: 1,
-          read_timeout: 5
+          read_timeout: 5,
         },
         headers: {
-          'Content-Type': ContentTypes::JSON
-        }
+          'Content-Type': ContentTypes::JSON,
+        },
       }
     end
 
@@ -33,7 +35,7 @@ module HttpEngine
         interval: 0.5,          # First retry after 0.5 seconds
         backoff_factor: 2,      # Double the delay for each subsequent retry
         retry_statuses: [429],  # Retry only when we get 429 request
-        methods: [:get]         # Retry only GET requests
+        methods: [:get], # Retry only GET requests
       }
     end
 
@@ -41,7 +43,7 @@ module HttpEngine
       {
         headers: true,
         bodies: true,
-        log_level: :debug
+        log_level: :debug,
       }
     end
 
@@ -62,4 +64,3 @@ module HttpEngine
     end
   end
 end
-
