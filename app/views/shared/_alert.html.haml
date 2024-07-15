@@ -1,0 +1,15 @@
+.alert{ class: "alert-#{type}" }
+  = yield
+  %span.close-icon
+    = fa_icon :xmark
+
+:javascript
+  $('.close-icon').click(function() {
+    $('.alert').remove();
+  })
+
+  $(function() {
+    setInterval(function() {
+      $('.alert').remove();
+    }, 10000)
+  })

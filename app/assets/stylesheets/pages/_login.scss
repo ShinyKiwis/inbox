@@ -10,6 +10,14 @@ span.highlight {
   color: $light-blue;
 }
 
+.auth-container h2 {
+  color: $blue;
+}
+
+.auth-container .logo {
+  font-size: 3em;
+}
+
 .prompt {
   font-size: 1.2em;
   font-weight: 500;
@@ -27,14 +35,6 @@ span.highlight {
 .auth-prompt {
   text-align: center;
   font-family: "DM Sans", sans-serif;
-}
-
-.auth-container h2 {
-  color: $blue;
-}
-
-.auth-container .logo {
-  font-size: 3em;
 }
 
 .auth-column label {
@@ -57,6 +57,7 @@ span.highlight {
 }
 
 .auth-column input:focus {
-  border: 2px solid $blue;
-  outline: none;
+  // border: 2px solid $blue;
+  border: 1px solid transparent;
+  outline: 2px solid $blue;
 }

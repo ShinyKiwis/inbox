@@ -1,0 +1,23 @@
+.alert {
+  border-radius: 0.25em;
+  padding: 0.4em 0.6em;
+  font-weight: 500;
+  display: flex;
+  align-items: center;
+}
+
+.alert-error {
+  color: $red;
+  background-color: lighten($red, 40%);
+}
+
+.close-icon {
+  margin-left: auto;
+  cursor: pointer;
+  color: inherit;
+
+  i {
+    color: inherit;
+  }
+}
+
