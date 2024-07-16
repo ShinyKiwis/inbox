@@ -2,6 +2,12 @@ import { Controller } from "@hotwired/stimulus"
 
 export default class extends Controller {
   connect() {
-    this.element.textContent = "Hello World!"
+    setInterval(() => {
+      this.close()
+    }, 10000)
+  }
+
+  close() {
+    this.element.remove()
   }
 }

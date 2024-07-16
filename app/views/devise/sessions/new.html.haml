@@ -11,7 +11,7 @@
     = form_for(resource, as: resource_name, url: session_path(resource_name)) do |f|
       .auth-form
         - if flash[:alert]
-          = render 'shared/alert', type: 'error' do
+          = alert do
             = flash[:alert]
         .field
           = f.label :email
