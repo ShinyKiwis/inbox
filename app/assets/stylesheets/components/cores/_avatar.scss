@@ -1,0 +1,29 @@
+.avatar {
+  margin-left: auto;
+  position: relative;
+  cursor: pointer;
+
+  svg {
+    display: block;
+  }
+
+  .avatar-expander {
+    position: absolute;
+    bottom: -5px;
+    right: -5px;
+    background-color: lighten($blue, 50%);
+    padding: 0.2em;
+    border-radius: 50%;
+    width: 20px;
+    height: 20px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    border: 2px solid $white;
+
+    i {
+      color: $blue;
+      font-size: 0.8em;
+    }
+  }
+}
