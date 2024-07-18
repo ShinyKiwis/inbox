@@ -5,6 +5,10 @@
 
   svg {
     display: block;
+
+    &:active {
+      transform: scale(0.9);
+    }
   }
 
   .avatar-expander {
@@ -24,6 +28,74 @@
     i {
       color: $blue;
       font-size: 0.8em;
+    }
+  }
+
+  .avatar-dropdown {
+    position: absolute;
+    width: 16em;
+    left: -12em;
+    bottom: -14em;
+    background-color: $white;
+    padding: 0.6em 1em;
+    border: 1px solid $light-gray;
+    border-radius: 0.4em;
+    box-shadow: 0px 10px 8px -5px $light-gray;
+
+    .avatar-dropdown-header {
+      display: flex;
+      align-items: center;
+      gap: 1em;
+      padding-bottom: 0.6em;
+      border-bottom: 1px solid $light-gray;
+
+      p {
+        margin: 0em;
+
+        &:first-child {
+          font-size: 1.2em;
+        }
+
+        &:last-child {
+          font-size: 0.8em;
+          color: $gray;
+        }
+      }
+    }
+
+    .avatar-dropdown-content {
+      display: flex;
+      flex-direction: column;
+      padding: 0.6em 0em;
+      border-bottom: 1px solid $light-gray;
+    }
+
+    .avatar-dropdown-actions {
+      margin-top: 0.6em;
+
+      .avatar-link:last-child:hover {
+        color: $red;
+      }
+
+      i {
+        color: inherit;
+      }
+    }
+
+    .avatar-link {
+      text-decoration: none;
+      display: flex;
+      align-items: center;
+      gap: 1em;
+      color: $gray;
+
+      &:hover {
+        color: $blue;
+
+        i {
+          color: inherit;
+        }
+      }
     }
   }
 }
