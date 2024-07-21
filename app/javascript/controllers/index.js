@@ -5,4 +5,6 @@
 import { application } from "./application"
 
 import AlertsController from "./alerts_controller"
+import AvatarController from "./avatar_controller"
 application.register("alerts", AlertsController)
+application.register("avatar", AvatarController)

@@ -10,9 +10,15 @@ class Users::RegistrationsController < Devise::RegistrationsController
   # end
 
   # POST /resource
-  # def create
-  #   super
-  # end
+  def create
+    build_resource(sign_up_params)
+    resource.username = resource.username.titleize
+    resource.default_avatar_image = UserAvatar.new(resource.username).default_avatar_url
+    resource.save
+
+    sign_up(resource_name, resource)
+    respond_with(resource, location: after_sign_up_path_for(resource))
+  end
 
   # GET /resource/edit
   # def edit
@@ -21,7 +27,9 @@ class Users::RegistrationsController < Devise::RegistrationsController
 
   # PUT /resource
   # def update
-  #   super
+  #   super do |user|
+  #     user.set_default_avatar_image(UserAvatar.new(user.username).default_avatar_url)
+  #   end
   # end
 
   # DELETE /resource

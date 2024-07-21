@@ -3,12 +3,8 @@
   position: relative;
   cursor: pointer;
 
-  svg {
-    display: block;
-
-    &:active {
-      transform: scale(0.9);
-    }
+  & > img:active {
+    transform: scale(0.85);
   }
 
   .avatar-expander {
@@ -35,7 +31,7 @@
     position: absolute;
     width: 16em;
     left: -12em;
-    bottom: -14em;
+    bottom: -10em;
     background-color: $white;
     padding: 0.6em 1em;
     border: 1px solid $light-gray;

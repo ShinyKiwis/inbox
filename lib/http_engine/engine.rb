@@ -15,6 +15,10 @@ module HttpEngine
       request(:get, endpoint, params, headers)
     end
 
+    def full_request_url(subpath, params = {})
+      [@conn.url_prefix.to_s.chomp('/'), subpath, "?#{params.to_query}"].join('/')
+    end
+
     private
 
     def default_params
@@ -60,7 +64,8 @@ module HttpEngine
     end
 
     def handle_response(response)
-      response
+      full_request_url = response.env.url.to_s
+      { body: response.body, full_request_url: full_request_url }
     end
   end
 end
