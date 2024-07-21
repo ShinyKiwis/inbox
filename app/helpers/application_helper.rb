@@ -1,8 +1,11 @@
 # frozen_string_literal: true
 
 module ApplicationHelper
+  def active_sidebar_item?(current_path)
+    request.path == current_path || request.path.include?(current_path)
+  end
+
   def fa_icon(name)
-    parsed_name = name.to_s.tr('_', '-')
-    tag.i(class: "fa-solid fa-#{parsed_name}")
+    tag.i(class: "fa-solid fa-#{name}")
   end
 end

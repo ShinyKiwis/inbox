@@ -64,8 +64,7 @@ module HttpEngine
     end
 
     def handle_response(response)
-      full_request_url = response.env.url.to_s
-      { body: response.body, full_request_url: full_request_url }
+      response.body
     end
   end
 end

@@ -6,7 +6,7 @@ module AvatarHelper
     content_tag(:span, class: 'avatar', data: { controller: :avatar, action: 'click->avatar#toggle' }) do
       concat(avatar_image)
       if options[:with_expander]
-        concat(content_tag(:span, fa_icon(:angle_down), class: 'avatar-expander'))
+        concat(content_tag(:span, fa_icon('angle-down'), class: 'avatar-expander'))
         concat(avatar_dropdown)
       end
     end
@@ -44,7 +44,7 @@ module AvatarHelper
 
   def avatar_dropdown_actions
     content_tag(:div, class: 'avatar-dropdown-actions') do
-      concat(avatar_link(:right_from_bracket, 'Log out', destroy_user_session_path, method: :delete))
+      concat(avatar_link('right-from-bracket', 'Log out', destroy_user_session_path, method: :delete))
     end
   end
 

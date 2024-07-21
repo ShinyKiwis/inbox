@@ -12,4 +12,6 @@
     %script{crossorigin: "anonymous", src: "https://kit.fontawesome.com/9255a9b9ab.js"}
   %body{data: { controller: 'application' }}
     = render "layouts/header"
-    = yield
+    .container
+      = render "layouts/main_sidebar"
+      = yield

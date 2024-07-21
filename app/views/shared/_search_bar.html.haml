@@ -1,5 +1,5 @@
 .search-bar
-  = fa_icon :magnifying_glass
+  = fa_icon 'magnifying-glass'
   = form_with url: '#', method: :get do |f|
     = f.text_field :query, placeholder: 'Search anything'
   %span.search-action-prompt Ctrl K

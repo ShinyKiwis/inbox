@@ -6,6 +6,8 @@
 body {
   margin: 0;
   height: 100vh;
+  display: flex;
+  flex-direction: column;
 }
 
 .logo {
@@ -26,4 +28,8 @@ p {
 
 a:visited {
   color: $blue;
+}
+
+a {
+  text-decoration: none;
 }

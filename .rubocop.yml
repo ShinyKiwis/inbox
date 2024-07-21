@@ -45,6 +45,9 @@ Rails/UnknownEnv:
     - staging
     - production
 
+Rails/HasManyOrHasOneDependent:
+  Enabled: false
+
 # Styles
 Style/StringLiterals:
   EnforcedStyle: single_quotes
