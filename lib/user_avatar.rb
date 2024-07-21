@@ -20,7 +20,7 @@ class UserAvatar
       name: username,
       background: '#0565B9',
       color: '#FFFFFF',
-      size: 48,
+      size: 40,
       bold: true,
       rounded: true,
       format: 'svg',

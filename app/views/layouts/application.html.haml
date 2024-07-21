@@ -10,6 +10,6 @@
     = javascript_include_tag "application", "data-turbo-track": "reload", type: "module"
     = javascript_include_tag "jquery", "data-turbo-track": "reload"
     %script{crossorigin: "anonymous", src: "https://kit.fontawesome.com/9255a9b9ab.js"}
-  %body
+  %body{data: { controller: 'application' }}
     = render "layouts/header"
     = yield

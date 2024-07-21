@@ -1,5 +1,5 @@
 .search-bar {
-  border: 2px solid $light-gray;
+  border: 1px solid $light-gray;
   border-radius: 0.6em;
   padding: 0.4em 0.8em;
   display: flex;
@@ -8,7 +8,7 @@
 }
 
 .search-bar:focus-within {
-  border: 2px solid $blue;
+  border: 1px solid $blue;
 }
 
 .search-bar:focus-within i, span {

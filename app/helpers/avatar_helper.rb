@@ -17,7 +17,7 @@ module AvatarHelper
   attr_accessor :user
 
   def avatar_dropdown
-    content_tag(:div, class: 'avatar-dropdown hide', data: { avatar_target: 'dropdown' }) do
+    content_tag(:div, class: 'avatar-dropdown hide togglable', data: { avatar_target: 'dropdown' }) do
       concat(
         content_tag(:div, class: 'avatar-dropdown-header') do
           concat(avatar_dropdown_header)
