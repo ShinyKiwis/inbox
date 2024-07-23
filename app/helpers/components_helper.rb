@@ -2,7 +2,7 @@
 
 module ComponentsHelper
   def main_sidebar(&block)
-    content_tag :div, class: 'main-sidebar' do
+    content_tag(:div, class: 'main-sidebar') do
       capture(&block)
     end
   end
@@ -21,23 +21,23 @@ module ComponentsHelper
     content = capture(&block).strip
     return if content.empty?
 
-    content_tag :div, class: 'sub-sidebar' do     
-      content.html_safe
+    content_tag(:div, class: 'sub-sidebar') do
+      sanitize content
     end
   end
 
   def sub_sidebar_item(current_controller)
     return unless active_sub_sidebar?(current_controller)
 
-    render "#{current_controller}/sidebar"
+    render("#{current_controller}/sidebar")
   end
 
   def action_button(text, path, options = {})
     link_options = options.to_h
     link_options[:class] = "btn btn-#{options[:style]}"
-    link_to path, link_options do
-      concat fa_icon options[:icon] if options[:icon]
-      concat text
+    link_to(path, link_options) do
+      concat(fa_icon(options[:icon])) if options[:icon]
+      concat(text)
     end
   end
 
