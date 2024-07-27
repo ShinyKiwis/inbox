@@ -22,7 +22,7 @@
   align-items: center;
   font-weight: 600;
   font-size: 0.8em;
-  padding: 0.6em;
+  padding: 0.6em 1.2em;
   border-radius: 0.4em;
 }
 
@@ -37,5 +37,19 @@
 
 .btn-normal:hover {
   background-color: $light-blue;
+  transition: 0.5s;
+}
+
+.btn-sub-action {
+  background-color: $gray;
+  color: $white;
+
+  i {
+    color: inherit;
+  }
+}
+
+.btn-sub-action:hover {
+  background-color: $light-gray;
   transition: 0.5s;
 }

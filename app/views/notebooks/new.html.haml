@@ -1,0 +1,7 @@
+= turbo_frame_tag :new_notebook do
+  = modal title: 'Create new notebook', description: 'Notebooks help to keep notes organized under a common topic', overlay: true do
+    = render 'form'
+  :javascript
+    $('.status-option').on('click', function() {
+      $(this).find("input[type='radio']").prop('checked', true)
+    })

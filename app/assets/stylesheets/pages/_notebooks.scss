@@ -1,0 +1,105 @@
+.status-option {
+  margin-bottom: 0.2em;
+  padding: 0.6em 1.2em;
+  border: 1px solid $light-gray;
+  outline: 1px solid transparent;
+  border-radius: 0.2em;
+  display: flex;
+  align-items: center;
+  gap: 1.2em;
+
+  p:first-child {
+    margin-top: 0em;
+    font-weight: 600;
+  }
+
+  p:last-child {
+    font-size: 0.8em;
+    color: $gray;
+  }
+
+  input[type='radio'] {
+    align-self: flex-start;
+    margin-left: auto;
+    visibility: hidden;
+  }
+
+
+  .status-option-icon {
+    font-size: 1em;
+    width: 2.5em;
+    height: 2.5em;
+    border-radius: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+  }
+
+  .published {
+    background-color: lighten($green, 55%);
+    i {
+      color: $green;
+    }
+  }
+
+  .private {
+    background-color: lighten($red, 45%);
+    i {
+      color: $red;
+    }
+  }
+
+  .shared {
+    background-color: lighten($blue, 55%);
+    i {
+      color: $blue;
+    }
+  }
+}
+
+.status-option:has(input[type='radio']:checked) {
+  border: 1px solid $light-blue;
+  outline: 1px solid $light-blue;
+}
+
+.notebook {
+  display: flex;
+  align-items: center;
+  gap: 1em;
+  padding: 0.4em 0.6em;
+  padding-left: 1.5em;
+  cursor: pointer;
+
+  span {
+    font-weight: 500;
+  }
+
+  span, i {
+    color: $gray;
+  }
+
+}
+
+#notebooks {
+  max-height: 20em;
+  overflow-y: auto;
+
+  .active {
+    position: relative;
+    background-color: lighten($light-blue, 40%);
+    border-radius: 0 0.4em 0.4em 0;
+    
+    span, i {
+      color: $blue;
+    }
+
+    .active-indicator {
+      position: absolute;
+      background-color: $blue;
+      width: 5px;
+      left: 0;
+      top: 0;
+      bottom: 0;
+    }
+  }
+}

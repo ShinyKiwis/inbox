@@ -1,10 +1,47 @@
 # frozen_string_literal: true
 
 class NotebooksController < ApplicationController
+  before_action :decode_id, only: ['show']
+  helper_method :notebooks
+
   def index
-    @notebooks = Notebook.where(owner_id: current_user)
+  end
+
+  def new
+    @notebook = Notebook.new
   end
 
   def show
+    @notebook = Notebook.find(params[:id])
+  end
+
+  def create
+    @notebook = Notebook.new(notebook_params)
+    @notebook.owner = current_user
+    @notebook.status = Status.find_by(name: 'private')
+    if @notebook.save
+      respond_to do |format|
+        format.turbo_stream
+      end
+    else
+      render :new, status: :unprocessable_entity
+    end
+  end
+
+  private
+
+  def notebook_params
+    params.require(:notebook).permit(
+      :name,
+      :status_id,
+    )
+  end
+
+  def decode_id
+    params[:id] = HashCodec.decode(params[:id]).first
+  end
+
+  def notebooks
+    @notebooks ||= Notebook.where(owner_id: current_user)
   end
 end

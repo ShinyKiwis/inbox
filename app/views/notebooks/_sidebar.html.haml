@@ -1,1 +1,9 @@
-= action_button('New notebook', '#', style: 'normal', icon: 'plus')
+= action_button 'New notebook', new_notebook_path, style: 'normal', icon: 'plus', data: { turbo_frame: :new_notebook }
+= turbo_frame_tag :new_notebook
+%span.sub-sidebar-section-title Notebooks
+#notebooks
+  - notebooks.each do |notebook|
+    = render 'notebook', notebook: notebook
+%span.sub-sidebar-section-title Notebook Content
+= turbo_frame_tag :notebook_content
+

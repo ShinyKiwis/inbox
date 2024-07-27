@@ -25,11 +25,36 @@ p {
   margin-top: 0.4em;
   margin-bottom: 0.4em;
 }
-//
-// a:visited {
-//   color: $blue;
-// }
-//
+
 a {
   text-decoration: none;
+}
+
+.action-form {
+  display: flex;
+  flex-direction: column;
+  gap: 0.4em;
+
+  label {
+    font-size: 0.8em;
+    font-weight: 600;
+  }
+
+  input {
+    border: 1px solid $light-gray;
+    border-radius: 0.4em;
+    padding: 0.8em 1em;
+    transition: 0.4s;
+  }
+
+  input:focus {
+    outline: none;
+    border: 1px solid $blue;
+    transition: 0.4s;
+  }
+
+  input[type='submit'] {
+    border: none;
+    cursor: pointer;
+  }
 }

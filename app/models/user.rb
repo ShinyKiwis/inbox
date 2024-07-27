@@ -6,7 +6,7 @@ class User < ApplicationRecord
   devise :database_authenticatable, :registerable,
     :recoverable, :rememberable, :validatable
 
-  has_many :notebooks, foreign_key: 'owner_id', inverse_of: :users
+  has_many :notebooks, foreign_key: 'owner_id'
 
   validates :username, presence: true
 

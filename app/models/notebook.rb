@@ -2,7 +2,11 @@
 
 class Notebook < ApplicationRecord
   belongs_to :status
-  belongs_to :users, class_name: 'User', foreign_key: 'owner_id', inverse_of: :notebooks
+  belongs_to :owner, class_name: 'User'
 
-  validates :name, presence: true, length: { maximum: 100 }
+  validates :name, presence: true, length: { maximum: 30 }
+
+  def to_param
+    HashCodec.encode(id)
+  end
 end

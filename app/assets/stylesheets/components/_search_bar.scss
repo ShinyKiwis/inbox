@@ -11,8 +11,10 @@
   border: 1px solid $blue;
 }
 
-.search-bar:focus-within i, span {
-  color: $blue;
+.search-bar:focus-within {
+  i, span {
+    color: $blue;
+  }
 }
 
 .search-bar:focus-within span.search-action-prompt {
@@ -28,8 +30,10 @@
   outline: none;
 }
 
-.search-bar i, span {
-  color: $light-gray;
+.search-bar {
+  i, span {
+    color: $light-gray;
+  }
 }
 
 .search-bar span.search-action-prompt {

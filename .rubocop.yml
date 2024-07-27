@@ -32,6 +32,9 @@ AllCops:
 Rails:
   Enabled: true
 
+Rails/InverseOf:
+  Enabled: false
+
 Rails/HttpStatus:
   EnforcedStyle: numeric
 
@@ -48,7 +51,13 @@ Rails/UnknownEnv:
 Rails/HasManyOrHasOneDependent:
   Enabled: false
 
+Rails/OutputSafety:
+  Enabled: false
+
 # Styles
+Style/ClassMethodsDefinitions:
+  Enabled: false
+
 Style/StringLiterals:
   EnforcedStyle: single_quotes
   Exclude:
@@ -73,6 +82,9 @@ Style/ClassAndModuleChildren:
   Enabled: false
 
 Style/GlobalStdStream:
+  Enabled: false
+
+Style/MethodCallWithArgsParentheses:
   Enabled: false
 
 # Layouts

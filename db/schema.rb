@@ -28,6 +28,7 @@ ActiveRecord::Schema[7.1].define(version: 2024_07_21_145816) do
 
   create_table "statuses", force: :cascade do |t|
     t.string "name"
+    t.string "status_type"
     t.string "description"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
