@@ -4,6 +4,11 @@
 #notebooks
   - notebooks.each do |notebook|
     = render 'notebook', notebook: notebook
-%span.sub-sidebar-section-title Notebook Content
-= turbo_frame_tag :notebook_content
+.sub-sidebar-section-title 
+  %span Notebook Content
+  = fa_icon 'ellipsis'
+= turbo_frame_tag :notebook_content do
+  - if @notebook
+    = render 'shared/local_search_bar', placeholder: 'Search notebook...'
+
 

@@ -5,7 +5,6 @@ class CreateNotebooks < ActiveRecord::Migration[7.1]
       t.integer :owner_id
       t.integer :notes_counter
       t.integer :status_id
-      t.jsonb :content
 
       t.timestamps
     end

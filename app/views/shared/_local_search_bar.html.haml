@@ -1,0 +1,16 @@
+.local-search-bar
+  = fa_icon 'magnifying-glass'
+  = form_with url: '#', method: :get do |f|
+    = f.text_field :query, id: 'local-query', placeholder: placeholder
+  
+:javascript
+  $(function() {
+    $(document).on("keydown", function(e) {
+      if(e.ctrlKey && e.key === 's') {
+        e.preventDefault();
+        $('#local-query').focus();
+      }else if(e.key === 'Escape') {
+        $("#local-query").blur();
+      }
+    })
+  })

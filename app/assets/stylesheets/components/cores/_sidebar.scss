@@ -76,8 +76,11 @@
   gap: 0.6em;
 
   .sub-sidebar-section-title {
+    margin-top: 0.4em;
     font-weight: 600;
     padding-bottom: 0.2em;
     border-bottom: 1px solid $light-gray;
+    display: flex;
+    justify-content: space-between;
   }
 }
