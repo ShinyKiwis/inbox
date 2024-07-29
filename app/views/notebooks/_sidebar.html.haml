@@ -6,7 +6,9 @@
     = render 'notebook', notebook: notebook
 .sub-sidebar-section-title 
   %span Notebook Content
-  = fa_icon 'ellipsis'
+  - if @notebook
+    = tooltip 'Add, delete content, and more...' do
+      = fa_icon 'ellipsis'
 = turbo_frame_tag :notebook_content do
   - if @notebook
     = render 'shared/local_search_bar', placeholder: 'Search notebook...'

@@ -1,6 +1,29 @@
-@import
-  'cores/modal',
-  'cores/sidebar',
-  'cores/avatar',
-  'cores/alert',
-  'cores/button';
+.tooltip {
+  position: relative;
+
+  .tooltip-text {
+    position: absolute;
+    top: 100%;
+    left: 50%;
+    right: 0;
+    width: fit-content;
+    white-space: nowrap;
+    transform: translateX(-50%);
+    font-size: 0.7em;
+    background-color: $black;
+    color: $white;
+    font-weight: 600;
+    padding: 0.4em 0.6em;
+    border-radius: 0.4em;
+    visibility: hidden;
+    opacity: 0;
+    transition: opacity 0.6s ease;
+    box-shadow: 0px 5px 8px $light-gray;
+  }
+
+  &:hover .tooltip-text {
+    visibility: visible;
+    opacity: 1;
+  }
+}
+
