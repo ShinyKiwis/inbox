@@ -5,10 +5,16 @@
 import { application } from "./application"
 
 import AlertsController from "./alerts_controller"
-import AvatarController from "./avatar_controller"
-import ApplicationController from "./application_controller"
-import ModalController from "./modal_controller"
 application.register("alerts", AlertsController)
-application.register("avatar", AvatarController)
+
+import ApplicationController from "./application_controller"
 application.register("application", ApplicationController)
+
+import AvatarController from "./avatar_controller"
+application.register("avatar", AvatarController)
+
+import ContextMenuController from "./context_menu_controller"
+application.register("context-menu", ContextMenuController)
+
+import ModalController from "./modal_controller"
 application.register("modal", ModalController)

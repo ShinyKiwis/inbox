@@ -5,10 +5,10 @@ module ApplicationHelper
     tag.i class: "fa-solid fa-#{name}"
   end
 
-  def tooltip(text, &block)
-    content_tag :div, class: 'tooltip' do
+  def tooltip(options, &block)
+    content_tag :div, class: 'tooltip', data: options[:data] do
       concat capture(&block)
-      concat content_tag :span, text, class: 'tooltip-text'
+      concat content_tag :span, options[:text], class: 'tooltip-text'
     end
   end
 end

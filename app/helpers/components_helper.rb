@@ -74,6 +74,23 @@ module ComponentsHelper
     end
   end
 
+  def context_menu(context_menu_id, &block)
+    data_options = {
+      'context-menu-target': 'menu',
+      'context-menu-id': context_menu_id,
+    }
+    content_tag :div, class: 'context-menu hide', data: data_options do
+      capture(&block)
+    end
+  end
+
+  def context_menu_item(path, text, icon)
+    link_to path, class: 'context-menu-item' do
+      concat fa_icon icon
+      concat content_tag(:span, text)
+    end
+  end
+
   private
 
   def active_sidebar_item?(current_path)
