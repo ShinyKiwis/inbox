@@ -17,9 +17,30 @@ export default class extends Controller {
     event.stopPropagation();
 
     const clickedElement = event.target
-    console.log(clickedElement)
+    const allowItems = this.getAllowItems(clickedElement)
+    this.filterMenuItems(allowItems)
+
     this.positionMenu(event);
     this.menuTarget.classList.remove("hide")
+  }
+
+  getAllowItems(element) {
+    const parentElement = element.parentElement
+    if(Object.keys(element.dataset).length > 0) {
+      return JSON.parse(element.dataset.allowItems)
+    } else if(Object.keys(parentElement.dataset).length > 0) {
+      return JSON.parse(parentElement.dataset.allowItems)
+    }
+    return []
+  }
+
+  filterMenuItems(allowItems) {
+    const menuItems = $(this.menuTarget).children();
+    menuItems.each((_, item) => {
+      if(!allowItems.includes($(item).data('item'))) {
+        item.classList.add('hide')
+      }
+    })
   }
 
   positionMenu(event) {
@@ -43,10 +64,10 @@ export default class extends Controller {
 
   getDimensions(element) {
     let dimensions = {};
-    element.classList.remove("hidden");
+    element.classList.remove("hide");
     dimensions.width = element.offsetWidth;
     dimensions.height = element.offsetHeight;
-    element.classList.add("hidden");
+    element.classList.add("hide");
     return dimensions;
   }
 
@@ -60,7 +81,6 @@ export default class extends Controller {
   shouldHideMenu(event) {
     return (
       !this.menuTarget.contains(event.target) ||
-      event.target === this.menuTarget ||
       event.target.closest("a")
     );
   }

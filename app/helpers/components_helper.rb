@@ -84,8 +84,8 @@ module ComponentsHelper
     end
   end
 
-  def context_menu_item(path, text, icon)
-    link_to path, class: 'context-menu-item' do
+  def context_menu_item(path, text, icon, options = {})
+    link_to path, class: 'context-menu-item', data: options[:data] do
       concat fa_icon icon
       concat content_tag(:span, text)
     end

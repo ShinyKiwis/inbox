@@ -17,6 +17,7 @@ class NotebooksController < ApplicationController
 
   def create
     @notebook = Notebook.new(notebook_params)
+    @notebook.root = true
     @notebook.owner = current_user
     @notebook.status = Status.find_by(name: 'private')
     if @notebook.save

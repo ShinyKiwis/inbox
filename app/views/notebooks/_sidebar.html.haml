@@ -7,10 +7,10 @@
       = render 'notebook', notebook: notebook
   = render 'notebook_menu'
 %div{ data: { controller: 'context-menu' }}
-  .sub-sidebar-section-title{ data: {action: 'contextmenu->context-menu#toggle' }}
+  .sub-sidebar-section-title
     %span Notebook Content
     - if @notebook
-      = tooltip text: 'Add, delete content, and more...', data: { action: 'click->context-menu#toggle' } do
+      = tooltip text: 'Add content', data: { action: 'click->context-menu#toggle', allow_items: ['new_note', 'new_folder'].to_json } do
         = fa_icon 'ellipsis'
   = turbo_frame_tag :notebook_content do
     - if @notebook
