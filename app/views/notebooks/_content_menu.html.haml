@@ -1,5 +1,5 @@
 = context_menu "content" do
-  = context_menu_item '#', 'New note', 'pen-to-square', data: { item: :new_note }
+  = context_menu_item notebook_notes_path(@notebook), 'New note', 'pen-to-square', data: { item: :new_note, turbo_method: :post }
   = context_menu_item '#', 'New folder', 'folder-plus', data: { item: :new_folder }
   = context_menu_item '#', 'Rename', 'pen', data: { item: :rename }
   = context_menu_item '#', 'Delete', 'trash-can', data: {item: :delete }

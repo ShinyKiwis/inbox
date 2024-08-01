@@ -1,7 +1,8 @@
 # frozen_string_literal: true
 
 class NotebooksController < ApplicationController
-  before_action :decode_id, only: ['show']
+  include DecodableParamsController
+
   helper_method :notebooks
 
   def index
@@ -36,10 +37,6 @@ class NotebooksController < ApplicationController
       :name,
       :status_id,
     )
-  end
-
-  def decode_id
-    params[:id] = HashCodec.decode(params[:id]).first
   end
 
   def notebooks

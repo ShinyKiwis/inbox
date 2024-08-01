@@ -7,12 +7,11 @@
       = render 'notebook', notebook: notebook
   = render 'notebook_menu'
 %div{ data: { controller: 'context-menu' }}
-  .sub-sidebar-section-title
-    %span Notebook Content
-    - if @notebook
+  - if @notebook
+    .sub-sidebar-section-title
+      %span Notebook Content
       = tooltip text: 'Add content', data: { action: 'click->context-menu#toggle', allow_items: ['new_note', 'new_folder'].to_json } do
         = fa_icon 'ellipsis'
-  = turbo_frame_tag :notebook_content do
-    - if @notebook
-      = render 'shared/local_search_bar', placeholder: 'Search notebook...'
-  = render 'content_menu'
+    = render 'shared/local_search_bar', placeholder: 'Search notebook...'
+    = turbo_frame_tag :notebook_content, data: { turbo_action: :advance }
+    = render 'content_menu'

@@ -7,5 +7,7 @@ Rails.application.routes.draw do
   root to: redirect('/dashboard')
   get '/dashboard', to: 'pages#dashboard'
 
-  resources :notebooks
+  resources :notebooks do
+    resources :notes
+  end
 end
