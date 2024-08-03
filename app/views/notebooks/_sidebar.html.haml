@@ -4,8 +4,8 @@
   %span.sub-sidebar-section-title Notebooks
   #notebooks
     - notebooks.each do |notebook|
-      = render 'notebook', notebook: notebook
-  = render 'notebook_menu'
+      = render 'notebooks/notebook', notebook: notebook
+  = render 'notebooks/notebook_menu'
 %div{ data: { controller: 'context-menu' }}
   - if @notebook
     .sub-sidebar-section-title
@@ -13,5 +13,5 @@
       = tooltip text: 'Add content', data: { action: 'click->context-menu#toggle', allow_items: ['new_note', 'new_folder'].to_json } do
         = fa_icon 'ellipsis'
     = render 'shared/local_search_bar', placeholder: 'Search notebook...'
-    = turbo_frame_tag :notebook_content, data: { turbo_action: :advance }
-    = render 'content_menu'
+    = turbo_frame_tag :notebook_content
+    = render 'notebooks/content_menu'

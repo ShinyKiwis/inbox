@@ -18,3 +18,6 @@ application.register("context-menu", ContextMenuController)
 
 import ModalController from "./modal_controller"
 application.register("modal", ModalController)
+
+import NoteController from "./note_controller"
+application.register("note", NoteController)

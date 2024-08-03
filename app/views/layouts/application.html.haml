@@ -16,4 +16,5 @@
     .container
       = render "layouts/main_sidebar"
       = render "layouts/secondary_sidebar"
-      = yield
+      = turbo_frame_tag :page_content do
+        = yield

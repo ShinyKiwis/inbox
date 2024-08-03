@@ -3,8 +3,6 @@
 class NotebooksController < ApplicationController
   include DecodableParamsController
 
-  helper_method :notebooks
-
   def index
   end
 
@@ -37,9 +35,5 @@ class NotebooksController < ApplicationController
       :name,
       :status_id,
     )
-  end
-
-  def notebooks
-    @notebooks ||= Notebook.where(owner_id: current_user)
   end
 end

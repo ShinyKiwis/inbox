@@ -8,8 +8,7 @@ module ComponentsHelper
   end
 
   def main_sidebar_item(path, action, icon)
-    active_class = active_sidebar_item?(path) ? 'active' : ''
-    link_to(path, class: "item #{active_class}") do
+    link_to(path, class: "item #{active_class(path)}") do
       concat(content_tag(:div, class: 'icon') do
         fa_icon(icon)
       end)
@@ -83,10 +82,6 @@ module ComponentsHelper
   end
 
   private
-
-  def active_sidebar_item?(current_path)
-    request.path == current_path || request.path.include?(current_path)
-  end
 
   def active_sub_sidebar?(current_controller)
     controller_name == current_controller

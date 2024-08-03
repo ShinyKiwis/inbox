@@ -11,4 +11,8 @@ module ApplicationHelper
       concat content_tag :span, options[:text], class: 'tooltip-text'
     end
   end
+
+  def active_class(current_path)
+    request.path.include?(current_path) ? 'active' : nil
+  end
 end

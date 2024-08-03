@@ -1,3 +1,4 @@
-test
+= turbo_stream.append :page_content do
+  = render 'note', note: @note
 = turbo_stream.append :notebook_content do
-  hi
+  = note_item @notebook, @note

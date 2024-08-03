@@ -10,7 +10,7 @@ module NotebooksHelper
   end
 
   def notebook_item(notebook)
-    active_class = request.path == notebook_path(notebook) ? 'active' : nil
+    active_class = active_class(notebook_path(notebook))
     link_to notebook_path(notebook), class: "notebook #{active_class}" do
       concat content_tag(:span, '', class: 'active-indicator') if active_class
       concat fa_icon 'book'

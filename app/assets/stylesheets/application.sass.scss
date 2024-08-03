@@ -11,9 +11,11 @@
   'components/index';
 
 @import 
+  'pages/notes',
   'pages/notebooks',
   'pages/login';
 
 @import 
-  'layout/header',
-  'layout/container';
+  'layouts/page_content',
+  'layouts/header',
+  'layouts/container';
