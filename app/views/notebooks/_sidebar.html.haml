@@ -4,7 +4,7 @@
   %span.sub-sidebar-section-title Notebooks
   #notebooks
     - notebooks.each do |notebook|
-      = render 'notebooks/notebook', notebook: notebook
+      = notebook_item notebook
   = render 'notebooks/notebook_menu'
 %div{ data: { controller: 'context-menu' }}
   - if @notebook

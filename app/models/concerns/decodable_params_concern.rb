@@ -1,4 +1,7 @@
-module DecodableParamsConcern extend ActiveSupport::Concern
+# frozen_string_literal: true
+
+module DecodableParamsConcern
+  extend ActiveSupport::Concern
   def to_param
     HashCodec.encode(id)
   end

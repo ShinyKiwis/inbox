@@ -1,2 +1,3 @@
-= turbo_stream.append 'notebooks', @notebook
+= turbo_stream.append 'notebooks' do
+  = notebook_item @notebook
 = turbo_stream.update :new_notebook, ''
