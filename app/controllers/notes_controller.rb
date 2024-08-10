@@ -21,12 +21,12 @@ class NotesController < ApplicationController
     @note.save
   end
 
-  private 
+  private
 
   def note_params
     params.require(:note).permit(
       :name,
-      :content
+      :content,
     )
   end
 end

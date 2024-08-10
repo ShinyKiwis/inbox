@@ -3,9 +3,20 @@ import { Controller } from "@hotwired/stimulus"
 export default class extends Controller {
   static targets = ['title']
   connect() {
-    $(this.titleTarget).on('click', () => {
+    if($(this.titleTarget).text().length == 0) {
+      $(this.titleTarget).trigger("focus");
+    }
+
+    this.checkNoteItemLoaded = this.checkNoteItemLoaded.bind(this)
+    this.intervalId = setInterval(this.checkNoteItemLoaded, 100)
+  }
+
+  checkNoteItemLoaded() {
+    const noteItem = $(`#${$(this.titleTarget).data('titleId')}`)
+    if(noteItem.length !== 0) {
+      clearInterval(this.intervalId)
       this.handleEditNoteTitle();
-    })
+    }
   }
 
   handleEditNoteTitle() {
@@ -17,7 +28,7 @@ export default class extends Controller {
       if(titleText.length === 0) {
         title.text('')
       }
-      noteItem.text(titleText || 'Untitled')
+      noteItem.text(JSHelper.truncate(titleText) || 'Untitled')
     })
   }
 }

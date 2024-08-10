@@ -15,7 +15,7 @@ module NotesHelper
     note_path = notebook_note_path(notebook, note)
     content_tag :div, class: 'note' do
       link_to note_path, id: note.hashed_param, class: active_class(note_path), data: { turbo_frame: '_top' } do
-        note.name || 'Untitled'
+        note.name&.truncate(25) || 'Untitled'
       end
     end
   end
