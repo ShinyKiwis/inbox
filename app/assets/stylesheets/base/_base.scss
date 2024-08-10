@@ -10,9 +10,10 @@ body {
   flex-direction: column;
 }
 
-.logo {
+#logo {
   color: $blue;
   font-style: italic;
+  font-size: 2em;
   margin: 0;
 }
 
