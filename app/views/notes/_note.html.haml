@@ -2,8 +2,7 @@
 .note-content{ 
   data: { 
       controller: 'note', 
-      note_save_url_value: notebook_note_path(notebook, note), 
-      note_csrf_token_value: form_authenticity_token 
+      note_save_url_value: notebook_note_path(notebook, note)
     } 
   }
   %h1#note-title{ contenteditable: true, placeholder: 'Untitled', data: { note_target: :title, title_id: note.hashed_param } }= note.name

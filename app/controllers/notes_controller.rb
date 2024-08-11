@@ -16,9 +16,14 @@ class NotesController < ApplicationController
   end
 
   def update
+    @notebook = Notebook.find(params[:notebook_id])
     @note = Note.find(params[:id])
     @note.assign_attributes(note_params)
-    @note.save
+    if @note.save
+      respond_to do |format|
+        format.turbo_stream
+      end
+    end
   end
 
   private

@@ -7,3 +7,12 @@ export function truncate(str) {
     str.substring(0, truncatedStringLength) + dots : 
     str
 }
+
+// Asynchronous
+export function debounce(func, delay){
+  let timer;
+  return (...args) => {
+    clearTimeout(timer);
+    timer = setTimeout(() => { func.apply(this, args); }, delay);
+  };
+}

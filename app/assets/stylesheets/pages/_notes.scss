@@ -8,10 +8,12 @@
 
 .note {
   cursor: pointer;
+  font-size: 0.88em;
   font-weight: 500;
   padding: 0.4em 0.8em;
   width: 100%;
   border-radius: 0.4em;
+  margin-bottom: 0.2em;
 
   a {
     width: 100%;
@@ -22,19 +24,16 @@
   &:hover {
     background-color: lighten($light-gray, 9%);
   }
-
-  &:has(.active) {
-    background-color: lighten($light-gray, 9%);
-  }
-
-  &:has(.active):hover {
-    background-color: lighten($light-gray, 5%);
-    transition: 0.4s;
-  }
 }
 
-.note .active {
-  font-weight: 500;
+.note.active {
+  background-color: lighten($light-gray, 10%);
+  font-weight: 600;
+
+  &:hover {
+    background-color: lighten($light-gray, 4%);
+    transition: 0.4s;
+  }
 }
 
 #note-title {

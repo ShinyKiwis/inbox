@@ -4,13 +4,15 @@ export default class extends Controller {
   static targets = ['title']
   static values = {
     saveUrl: String,
-    csrfToken: String
   }
 
   connect() {
+    this.token = $('meta[name="csrf-token"]').attr('content');
+
     if($(this.titleTarget).text().length == 0) {
       $(this.titleTarget).trigger("focus");
     }
+    this.debouncedSave = JSHelper.debounce(() => this.save(), 600);
 
     // Waiting for all turbo frames are loaded with turbo-stream then clear
     // the interval when get the targeted element
@@ -38,27 +40,26 @@ export default class extends Controller {
         title.text('')
       }
       noteItem.text(JSHelper.truncate(titleText) || 'Untitled')
-      this.save();
+      this.debouncedSave();
     })
   }
 
   save() {
-    clearTimeout(this.saveTimeoutId);
-    this.saveTimeoutId = setTimeout(() => {
-      console.log('saved')
-      $.ajax({
-        url: this.saveUrlValue,
-        type: 'PATCH',
-        headers: {
-          'X-CSRF-Token': this.csrfTokenValue
-        },
-        data: {
-          note: {
-            name: $(this.titleTarget).text()
-          }
-        },
-        dataType: 'json'
-      })
-    }, 800);
+    $.ajax({
+      url: this.saveUrlValue,
+      type: 'PATCH',
+      headers: {
+        'X-CSRF-Token': this.token,
+        'Accept': 'text/vnd.turbo-stream.html, text/html, application/xhtml+xml'
+      },
+      data: {
+        note: {
+          name: $(this.titleTarget).text()
+        }
+      },
+      success: function(response) {
+        Turbo.renderStreamMessage(response)
+      }
+    })
   }
 }

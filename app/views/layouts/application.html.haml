@@ -5,6 +5,7 @@
     %title Inbox
     %meta{:content => "width=device-width,initial-scale=1", :name => "viewport"}/
     %meta{content: "false", name: "turbo-prefetch"}/
+    %meta{content: "no-preview", name: "turbo-cache-control"}/
     = csrf_meta_tags
     = csp_meta_tag
     = stylesheet_link_tag "application", "data-turbo-track": "reload"
