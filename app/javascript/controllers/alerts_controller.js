@@ -4,7 +4,7 @@ export default class extends Controller {
   connect() {
     setInterval(() => {
       this.close()
-    }, 10000)
+    }, 8000)
   }
 
   close() {

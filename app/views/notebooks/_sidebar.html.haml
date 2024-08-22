@@ -6,12 +6,11 @@
     - notebooks.each do |notebook|
       = notebook_item notebook
   = render 'notebooks/notebook_menu'
-%div{ data: { controller: 'context-menu' }}
-  - if @notebook
+- if @notebook
+  %div{ data: { controller: 'context-menu' }}
+    = render 'notebooks/content_menu', notebook: @notebook, note: nil
     .sub-sidebar-section-title
       %span Notebook Content
-      = tooltip text: 'Add content', data: { action: 'click->context-menu#toggle', allow_items: ['new_note', 'new_folder'].to_json } do
-        = fa_icon 'ellipsis'
+      = tooltip_wrapper('Add content', allow_actions: ['new_note', 'new_folder', 'delete_folder'])
     = render 'shared/local_search_bar', placeholder: 'Search notebook...'
-    = turbo_frame_tag :notebook_content
-    = render 'notebooks/content_menu'
+  = turbo_frame_tag :notebook_content, data: { turbo_permanent: true }

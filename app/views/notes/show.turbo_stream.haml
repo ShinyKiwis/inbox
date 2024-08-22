@@ -1,0 +1,6 @@
+= turbo_stream.update :page_content do
+  = render 'note', notebook: @notebook, note: @note
+  :javascript
+    history.pushState({}, '', '#{notebook_note_path(@notebook, @note)}')
+= turbo_stream.update :notebook_content do
+  = render 'notebooks/notebook_content', notebook: @notebook

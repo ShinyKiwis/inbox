@@ -9,7 +9,7 @@
     width: fit-content;
     white-space: nowrap;
     transform: translateX(-50%);
-    font-size: 0.7em;
+    font-size: 0.7rem;
     background-color: $black;
     color: $white;
     font-weight: 600;
@@ -38,6 +38,7 @@
   border-radius: 0.4em;
   padding: 0.4em;
   box-shadow: 0px 10px 8px -5px $light-gray;
+  z-index: 10;
 
   .context-menu-item {
     background-color: inherit;
@@ -47,7 +48,7 @@
     color: $black;
     padding: 0.4em 1em;
     font-weight: 500;
-    font-size: 0.9em;
+    font-size: 0.9rem;
     border-radius: 0.4em;
   }
 

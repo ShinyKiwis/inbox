@@ -1,18 +1,11 @@
-= form_with(model: @notebook, class: 'action-form') do |f|
+- placeholder = @notebook.parent.present? ? 'Folder name' : 'Notebook name'
+= form_with(model: @notebook, url: dynamic_action(@notebook), class: 'action-form') do |f|
   = f.label :name
-  = f.text_field :name, placeholder: 'Notebook name', autofocus: true, autocomplete: 'off'
+  = f.text_field :name, placeholder: placeholder, autofocus: true, autocomplete: 'off'
   - if @notebook.errors[:name].any?
     %span.error
       = @notebook.errors.full_messages_for(:name).first
-  -# = f.label :privacy
-  -# - Status.privacy_status.each do |status|
-  -#   .status-option
-  -#     .status-option-icon{ class: status.name }
-  -#       = fa_icon status_icon(status.name)
-  -#     %div
-  -#       %p.status-title=status.name.titleize
-  -#       %p.status-description=status.description
-  -#     = f.radio_button :status_id, status.id, checked: @notebook.status_id == status.id || status.name.private?
+
   = modal_actions do
     = action_button 'Cancel', '#', style: 'sub-action', data: { action: 'click->modal#toggle' }
     = f.submit 'Create', class: 'btn btn-normal'

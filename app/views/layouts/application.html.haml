@@ -6,6 +6,7 @@
     %meta{:content => "width=device-width,initial-scale=1", :name => "viewport"}/
     %meta{content: "false", name: "turbo-prefetch"}/
     %meta{content: "no-preview", name: "turbo-cache-control"}/
+    %meta{content: "morph", name: "turbo-refresh-method"}/
     = csrf_meta_tags
     = csp_meta_tag
     = stylesheet_link_tag "application", "data-turbo-track": "reload"
@@ -15,6 +16,7 @@
   %body{data: { controller: 'application' }}
     = render "layouts/header"
     .container
+      = render 'shared/alert_modal'
       = render "layouts/main_sidebar"
       = render "layouts/secondary_sidebar"
       = turbo_frame_tag :page_content do

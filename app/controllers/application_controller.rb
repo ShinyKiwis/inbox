@@ -24,6 +24,6 @@ class ApplicationController < ActionController::Base
   end
 
   def notebooks
-    @notebooks ||= Notebook.where(owner_id: current_user)
+    @notebooks ||= Notebook.root.where(owner_id: current_user)
   end
 end

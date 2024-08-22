@@ -17,4 +17,8 @@ module NotebooksHelper
       concat content_tag(:span, notebook.name)
     end
   end
+
+  def dynamic_action(notebook)
+    { action: notebook.parent.present? ? :create_folder : :create }
+  end
 end

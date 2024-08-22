@@ -1,0 +1,3 @@
+= turbo_stream.update :notebook_content do
+  = render 'notebook_content', notebook: @notebook.outermost_parent
+= turbo_stream.update :new_notebook, ''

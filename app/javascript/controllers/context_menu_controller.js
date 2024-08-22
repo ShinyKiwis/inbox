@@ -39,6 +39,8 @@ export default class extends Controller {
     menuItems.each((_, item) => {
       if(!allowItems.includes($(item).data('item'))) {
         item.classList.add('hide')
+      } else {
+        item.classList.remove('hide')
       }
     })
   }
@@ -83,5 +85,10 @@ export default class extends Controller {
       !this.menuTarget.contains(event.target) ||
       event.target.closest("a")
     );
+  }
+
+  getItemId(clickedElement) {
+    const targetParent = $(clickedElement).parents("[data-item-id]")
+    return targetParent.data('itemId');
   }
 }

@@ -16,8 +16,14 @@ application.register("avatar", AvatarController)
 import ContextMenuController from "./context_menu_controller"
 application.register("context-menu", ContextMenuController)
 
+import FolderController from "./folder_controller"
+application.register("folder", FolderController)
+
 import ModalController from "./modal_controller"
 application.register("modal", ModalController)
 
 import NoteController from "./note_controller"
 application.register("note", NoteController)
+
+import UrlHelperController from "./url_helper_controller"
+application.register("url-helper", UrlHelperController)

@@ -64,11 +64,11 @@ module ComponentsHelper
     end
   end
 
-  def context_menu(context_menu_id, &block)
+  def context_menu(context_menu_id, data_options: {}, &block)
     data_options = {
       'context-menu-target': 'menu',
       'context-menu-id': context_menu_id,
-    }
+    }.merge(data_options)
     content_tag :div, class: 'context-menu hide', data: data_options do
       capture(&block)
     end

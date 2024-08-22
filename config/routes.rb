@@ -8,6 +8,13 @@ Rails.application.routes.draw do
   get '/dashboard', to: 'pages#dashboard'
 
   resources :notebooks do
-    resources :notes
+    get :new_folder
+    post :create_folder
+    patch :delete
+    delete :hard_delete
+    resources :notes do
+      patch :delete
+      delete :hard_delete
+    end
   end
 end

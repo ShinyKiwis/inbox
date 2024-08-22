@@ -10,24 +10,40 @@
   cursor: pointer;
   font-size: 0.88em;
   font-weight: 500;
-  padding: 0.4em 0.8em;
   width: 100%;
   border-radius: 0.4em;
   margin-bottom: 0.2em;
+  display: flex;
+  align-items: center;
+  gap: 0.4em;
+  padding-inline-end: 0.8em;
 
   a {
     width: 100%;
     display: inline-block;
-    padding: 0;
+    padding: 0.4em 0.8em;
   }
 
   &:hover {
     background-color: lighten($light-gray, 9%);
   }
+
+  .fa-angle-right {
+    transform: rotate(0deg);
+  }
+}
+
+.note .tooltip {
+  margin-left: auto;
+  visibility: hidden;
+}
+
+.note:hover .tooltip {
+  visibility: visible;
 }
 
 .note.active {
-  background-color: lighten($light-gray, 10%);
+  background-color: lighten($light-gray, 9%);
   font-weight: 600;
 
   &:hover {
@@ -51,5 +67,23 @@
   color: lighten($gray, 20%);
   pointer-events: none;
   display: block; /* For Firefox */
+}
+
+.folder-expander {
+  // display: flex;
+  // flex-direction: column;
+  &>.note:first-child {
+    padding: 0.4em 0.8em;
+  }
+}
+
+.folder {
+  .notes {
+    margin-top: 0.2em;
+    margin-left: 1em;
+    margin-bottom: 0.4em;
+    padding-left: 0.4em;
+    border-left: 1px solid $light-gray;
+  }
 }
 
