@@ -16,6 +16,8 @@ export default class extends Controller {
     event.preventDefault();
     event.stopPropagation();
 
+    this.hideAllOtherMenus();
+
     const clickedElement = event.target
     const allowItems = this.getAllowItems(clickedElement)
     this.filterMenuItems(allowItems)
@@ -78,6 +80,14 @@ export default class extends Controller {
     if (this.shouldHideMenu(event)) {
       this.menuTarget.classList.add("hide");
     }
+  }
+
+  hideAllOtherMenus() {
+    $(".context-menu").each((_, menu) => {
+      if (menu !== this.menuTarget) {
+        $(menu).addClass("hide");
+      }
+    });
   }
 
   shouldHideMenu(event) {

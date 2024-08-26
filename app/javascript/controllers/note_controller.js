@@ -32,10 +32,10 @@ export default class extends Controller {
 
   handleEditNoteTitle() {
     const title = $(this.titleTarget)
-    const noteItem = $(`#${title.data('titleId')}`)
 
     title.on('input', () => {
       const titleText = title.text();
+      const noteItem = $(`#${title.data('titleId')}`)
       if(titleText.length === 0) {
         title.text('')
       }
