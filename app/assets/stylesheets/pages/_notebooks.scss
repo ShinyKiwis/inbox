@@ -92,7 +92,8 @@
   overflow-y: auto;
   -ms-overflow-style: none;  /* Internet Explorer 10+ */
   scrollbar-width: none;
-  transform: translateZ(0);
+  max-height: 21.875em;
+  // transform: translateZ(0);
 }
 
 #notebook_content::-webkit-scrollbar { 
