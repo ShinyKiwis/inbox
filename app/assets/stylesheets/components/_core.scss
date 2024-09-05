@@ -1,14 +1,11 @@
 .tooltip {
   position: relative;
-
+  
   .tooltip-text {
-    position: absolute;
-    top: 100%;
-    left: 50%;
-    right: 0;
-    width: fit-content;
+    position: fixed;
+    left: auto;
+    transform: translate(-50%, -100%); 
     white-space: nowrap;
-    transform: translateX(-50%);
     font-size: 0.7rem;
     background-color: $black;
     color: $white;
@@ -19,8 +16,9 @@
     opacity: 0;
     transition: opacity 0.6s ease;
     box-shadow: 0px 5px 8px $light-gray;
+    z-index: 1000; 
   }
-
+  
   &:hover .tooltip-text {
     visibility: visible;
     opacity: 1;
@@ -29,7 +27,7 @@
 
 .context-menu {
   position: fixed;
-  width: 12em;
+  width: fit-content;
   background: $white;
   border: 1px solid $light-gray;
   display: flex;

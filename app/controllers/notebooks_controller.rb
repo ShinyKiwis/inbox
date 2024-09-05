@@ -31,6 +31,7 @@ class NotebooksController < ApplicationController
         format.turbo_stream
       end
     else
+    puts "Failed to save notebook: #{@notebook.errors.full_messages.join(", ")}"
       render :new, status: :unprocessable_entity
     end
   end
